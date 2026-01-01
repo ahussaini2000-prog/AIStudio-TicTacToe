@@ -1,0 +1,5 @@
+{
+  "name": "Gemini Tic-Tac-Toe Pro",
+  "description": "A high-fidelity Tic-Tac-Toe game featuring a smart AI opponent powered by Gemini 3, immersive sound effects, and a sleek modern UI.",
+  "requestFramePermissions": []
+}
