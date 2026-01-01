@@ -128,25 +128,20 @@ const App: React.FC = () => {
     }, 600);
   };
 
-  // Simple hard logic helper
   const findBestMove = (board: Player[]): number => {
-    // 1. Try to win
     for (const [a, b, c] of WINNING_COMBINATIONS) {
       const line = [board[a], board[b], board[c]];
       if (line.filter(x => x === 'O').length === 2 && line.includes(null)) {
         return [a, b, c][line.indexOf(null)];
       }
     }
-    // 2. Block player
     for (const [a, b, c] of WINNING_COMBINATIONS) {
       const line = [board[a], board[b], board[c]];
       if (line.filter(x => x === 'X').length === 2 && line.includes(null)) {
         return [a, b, c][line.indexOf(null)];
       }
     }
-    // 3. Center
     if (board[4] === null) return 4;
-    // 4. Random available
     const available = board.map((v, i) => v === null ? i : null).filter(v => v !== null) as number[];
     return available[Math.floor(Math.random() * available.length)];
   };
@@ -173,7 +168,6 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-[#0f172a] flex flex-col items-center justify-center p-4 md:p-8">
-      {/* Header */}
       <div className="mb-8 text-center">
         <h1 className="text-4xl md:text-6xl font-black mb-2 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-rose-500 tracking-tighter">
           TIC-TAC-TOE PRO
@@ -183,10 +177,7 @@ const App: React.FC = () => {
         </p>
       </div>
 
-      {/* Main Content */}
       <div className="w-full max-w-4xl grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-        
-        {/* Left Side: Score & Config */}
         <div className="order-2 lg:order-1 space-y-4">
           <div className="bg-slate-800/50 p-6 rounded-2xl border border-slate-700 backdrop-blur-sm">
             <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
@@ -249,7 +240,6 @@ const App: React.FC = () => {
           </div>
         </div>
 
-        {/* Center: Board */}
         <div className="order-1 lg:order-2 flex flex-col items-center">
           <div className="mb-6 h-8 flex items-center">
             {gameState.winner ? (
@@ -293,7 +283,6 @@ const App: React.FC = () => {
           </button>
         </div>
 
-        {/* Right Side: Log / Stats */}
         <div className="order-3 space-y-4">
           <div className="bg-slate-800/50 p-6 rounded-2xl border border-slate-700 backdrop-blur-sm h-full min-h-[300px] flex flex-col">
             <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
@@ -315,7 +304,6 @@ const App: React.FC = () => {
             </div>
           </div>
         </div>
-
       </div>
 
       <footer className="mt-12 text-slate-500 text-xs font-medium uppercase tracking-widest">
