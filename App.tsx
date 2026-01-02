@@ -299,7 +299,7 @@ const App: React.FC = () => {
                 <p>Connected to Gemini API v1.5</p>
               </div>
               <div className="mt-auto p-4 bg-cyan-900/20 rounded-lg border border-cyan-700/30 text-cyan-300">
-                <p className="italic text-xs">"I play optimally, but humans are unpredictable." - Gemini</p>
+                <p className="italic text-xs">"This game is an example of getting locked to Google AI Services!</p>
               </div>
             </div>
           </div>
